@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-around">
+    <form action="/update/account" method="post" class="col-4 p-4 bg-dark text-light">
+        <div class="d-flex justify-content-around">
+            <div class="form-group d-flex justify-content-around">
+                <label class="col-2 pl-0" for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="form-control">
+
+                <label class="col-2" for="last_name">Last Name:</label>
+                <input type="text" name="last_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" name="address" class="form-control">
+            </div>
+            <div class="form-group d-flex justify-content-around">
+                <label class="col-2 px-0 mx-auto" for="city">City:</label>
+                <input type="text" name="city" class="form-control mx-2 pl-0">
+
+                <p class="mx-2 px-auto" for="state">State:</p>
+                <select name="state" class="mx-auto">
+                    {% for i in state %}
+                        <option>{{i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </div>
+        <br>
+            <input type="submit" value="Update" class="btn btn-primary">
+    </form>
+    <form action="" method="post" class="col-4 p-4 bg-dark text-light">
+        
+    </form>
+</div>
+{% endblock %}
