@@ -34,8 +34,13 @@
         <br>
             <input type="submit" value="Update" class="btn btn-primary">
     </form>
-    <form action="" method="post" class="col-4 p-4 bg-dark text-light">
-        
+    
+    
+    <form action="/favorite_list" method="get" class="col-4 p-4 bg-dark text-light">
+        {% for i in orders %}
+            <input type="checkbox" name="{{i}}" id="accept">
+            <label for="{{i}}">{{i.topping}}</label>
+        {% endfor %}
     </form>
 </div>
 {% endblock %}

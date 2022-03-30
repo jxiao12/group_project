@@ -68,14 +68,14 @@ def logout():
     session.clear()
     return redirect('/')
 
-@app.route('/personal/<int:id>')
+@app.route('/personal/<int:id>', methods=['GET'])
 def edit_account(id):
     if 'user_id' not in session:
         return redirect('/')
     data = {
         "id":id
     }
-    return render_template("account.html", user=User.get_by_id(data), state=states)
+    return render_template("account.html", user=User.get_by_id(data), state=states, orders=Order.get_all())
 
 @app.route('/update/account',methods=['POST'])
 def update_company():
@@ -96,3 +96,10 @@ def update_company():
     }
     User.update(data)
     return redirect('/')
+
+@app.route('/favorite_list',methods=['GET'])
+def get_favorite():
+    if 'user_id' not in session:
+        return redirect('/')
+    print(session)
+    print(request.form)
